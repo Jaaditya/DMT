@@ -18,9 +18,9 @@ app.use('/web/api', userRouter);
 app.use('/web/api', adminRouter);
 
 
-const IP = process.env.IP2 || process.env.IP1;
+const IP = process.env.PGHOST;
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PGPORT;
 app.listen(PORT,IP, () => {
-  console.log(`Server is running at http://${IP}:${PORT}`);
+  console.log(`Server is running at http://${IP}:${PGPORT}`);
 });
