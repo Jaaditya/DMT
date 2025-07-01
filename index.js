@@ -21,7 +21,7 @@ app.use('/web/api', adminRouter);
 const IP = process.env.PGHOST;
 
 
-const PORT = process.env.PGPORT;
+const PORT = process.env.PGPORT || 4000;
 app.listen(PORT,IP, () => {
   console.log(`Server is running at http://${IP}:${PORT}`);
 });
