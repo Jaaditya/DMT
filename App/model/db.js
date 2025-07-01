@@ -6,7 +6,7 @@ const conn = new Client({
   user: process.env.USER,
   port: process.env.PORT,
   password: process.env.PASSWORD,
-  database: process.env.NAME,
+  database: process.env.DATABASE,
 });
 // const conn = new Client({
 //   connectionString: process.env.DATABASE_URL,
