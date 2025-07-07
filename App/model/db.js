@@ -1,5 +1,5 @@
 require("dotenv").config();
-const { Pool } = require("pg");
+const { Client, Pool } = require("pg");
 
 const conn = new Pool({
   host: process.env.PG_HOST,
