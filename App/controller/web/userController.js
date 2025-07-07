@@ -2,8 +2,12 @@ const {
   createUser,
   login,
   createService,
-  getUserById
+  getUserById,
 } = require("../../model/user.model");
+// const {
+//   getMachines,
+//   createMachine,
+// } = require("../../model/machine.model");
 
 const registerUser = async (req, res) => {
   const { name, email, password } = req.body;
@@ -119,10 +123,39 @@ const userDetails = async (req, res) => {
     res.status(500).json({ error: "Failed to fetch user details" });
   }
 };
+// const fetchMachines = async (req, res) => {
+//   const category = req.query.category; // optional ?category=Tractor
+
+//   try {
+//     const machines = await getMachines(category);
+//     res.status(200).json(machines);
+//   } catch (err) {
+//     console.error("Error fetching machines:", err);
+//     res.status(500).json({ error: "Failed to fetch machine data" });
+//   }
+// };
+// const postMachine = async (req, res) => {
+//   const { name, image_path, category, description, model } = req.body;
+
+//   if (!name || !image_path || !category || !description || !model) {
+//     return res.status(400).json({ error: "All fields are required." });
+//   }
+
+//   try {
+//     const machine = await createMachine({ name, image_path, category, description, model });
+//     res.status(201).json({ message: "Machine added successfully", machine });
+//   } catch (err) {
+//     console.error("Error adding machine:", err);
+//     res.status(500).json({ error: "Failed to add machine" });
+//   }
+// };
+
 
 module.exports = {
   registerUser,
   loginUser,
   serviceBook,
   userDetails,
+  // fetchMachines,
+  // postMachine,
 };
