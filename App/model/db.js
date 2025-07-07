@@ -9,11 +9,12 @@ const { Client } = require("pg");
 //   database: process.env.DB_NAME,
 // });
 
-const conn = new Client({
-  connectionString: process.env.DATABASE_URL, 
-  ssl: {
-    rejectUnauthorized: false,
-  }});
+require('dotenv').config(); // for local use
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false,
+});
+
 
 (async () => {
   try {
