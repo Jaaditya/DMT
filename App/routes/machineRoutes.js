@@ -13,5 +13,6 @@ const upload = multer({ storage });
 
 router.post("/machines", upload.single("image"), uploadMachine);
 router.get("/machines", fetchMachines);
+router.delete("/machines/:id", deleteMachine); 
 
 module.exports = router;

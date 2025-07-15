@@ -36,7 +36,22 @@ const getMachines = async (category = null) => {
   }
 };
 
+const deleteMachine = async(id) =>{
+  const query = `
+    DELETE FROM machines
+    WHERE id = $1
+  `;
+  const values = [id];
+
+  try {
+    await conn.query(query, values);
+    return { message: 'Machine deleted successfully' };
+  } catch (err) {
+    throw err;
+  }
+}
+
 module.exports = {
-  getMachines,createMachine,
+  getMachines,createMachine,deleteMachine,
 
 };

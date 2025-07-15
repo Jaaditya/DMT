@@ -30,4 +30,15 @@ const fetchMachines = async (req, res) => {
   }
 };
 
-module.exports = { uploadMachine, fetchMachines };
+const deleteMachine = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const result = await deleteMachine(id);
+    res.json(result);
+  } catch (err) {
+    console.error("Delete error:", err.message);
+    res.status(500).json({ error: "Failed to delete machine" });
+}
+  };
+
+module.exports = { uploadMachine, fetchMachines, deleteMachine };
