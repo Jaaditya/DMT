@@ -1,4 +1,4 @@
-const { createMachine, getMachines } = require("../model/machine.model");
+const { createMachine, getMachines, deleteMachine } = require("../model/machine.model");
 
 const uploadMachine = async (req, res) => {
   try {
@@ -30,7 +30,7 @@ const fetchMachines = async (req, res) => {
   }
 };
 
-const deleteMachine = async (req, res) => {
+const removeMachine = async (req, res) => {
   try {
     const { id } = req.params;
     const result = await deleteMachine(id);
@@ -41,4 +41,4 @@ const deleteMachine = async (req, res) => {
 }
   };
 
-module.exports = { uploadMachine, fetchMachines, deleteMachine };
+module.exports = { uploadMachine, fetchMachines, removeMachine };

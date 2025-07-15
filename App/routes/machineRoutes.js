@@ -1,6 +1,6 @@
 const express = require("express");
 const multer = require("multer");
-const { uploadMachine, fetchMachines } = require("../controller/machineController");
+const { uploadMachine, fetchMachines, removeMachine } = require("../controller/machineController");
 
 const router = express.Router();
 
@@ -13,6 +13,6 @@ const upload = multer({ storage });
 
 router.post("/machines", upload.single("image"), uploadMachine);
 router.get("/machines", fetchMachines);
-router.delete("/machines/:id", deleteMachine); 
+router.delete("/machines/:id", removeMachine); 
 
 module.exports = router;
