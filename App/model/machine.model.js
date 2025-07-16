@@ -18,7 +18,7 @@ const createMachine = async ({ name, image_path, category, description, model })
 };
 const getMachines = async (category = null) => {
   let query = `
-    SELECT name, image_path, category, description, model
+    SELECT id, name, image_path, category, description, model
     FROM machines
   `;
   let values = [];
